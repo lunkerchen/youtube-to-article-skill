@@ -6,6 +6,7 @@ A professional **Hermes Agent Skill** definition for transforming YouTube videos
 
 - [English](./docs/en.md)
 - [繁體中文](./docs/zh-TW.md)
+- [日本語](./docs/jp.md)
 
 ---
 
