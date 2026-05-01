@@ -1,22 +1,27 @@
-# YouTube to Article Skill 📺 ➡️ 📝
+# YouTube to Article Skill
 
-A professional **Hermes Agent Skill** definition for transforming YouTube videos into high-quality, structured, and readable articles.
+A professional Hermes Agent Skill definition for the v3.2 YouTube-to-Article tool — a FastAPI web app that transforms YouTube videos into structured articles.
 
-## 📖 Overview
-Unlike simple summarization tools, this skill encodes a **production-grade pipeline** for knowledge extraction. It guides the AI agent to avoid common pitfalls (such as subtitle mismatch or loss of detail) and ensures the final output maintains a professional editorial structure.
+## Pipeline Overview
+1. Extraction: yt-dlp metadata + VTT subtitle download with 9-language priority chain
+2. Cleaning: Remove WEBVTT headers, timestamps, HTML tags, consecutive-line dedup
+3. Synthesis: Google Gemini Flash restructuring into thematic blocks (H1/H2/H3), preserving data and quotes
 
-## 🛠️ The Pipeline
-The skill implements a three-stage process:
-1. **Extraction**: Use `yt-dlp` to fetch metadata and `.vtt` subtitles.
-2. **Cleaning**: Remove WEBVTT headers, timestamps, and HTML tags; perform consecutive line deduplication.
-3. **Synthesis**: Reconstruct content into "Topic Blocks" using professional written Chinese.
+## v3.2 Enhancements
+- Smart URL parsing for messy paste input
+- Multi-result tabs for batch conversion
+- 4-language UI (ZH-TW, ZH-CN, EN, JA) with localStorage persistence
+- Ctrl+Enter keyboard shortcut
+- Map-Reduce chunking for >1hr videos
+- Toast notifications instead of alert()
 
-## 📂 Contents
-- `SKILL.md`: Core definition, trigger conditions, and pitfalls.
-- `references/`: Detailed guides for Apple Notes export and failure diagnosis.
+## Repository Contents
+- SKILL.md: Core definition with trigger conditions, pipeline steps, frontend architecture, i18n details, API endpoints, pitfalls, and verification standards
+- references/common-failures.md: Troubleshooting guide
+- references/apple-notes-export.md: osascript pattern for Apple Notes
 
-## 🚀 How to Use
-Import this skill into your Hermes Agent's skill library. The agent will automatically follow the encoded workflow when a user provides a YouTube link and requests an article.
+## How to Use
+Import SKILL.md into your Hermes Agent library. When a user provides a YouTube URL and requests an article, the agent follows the encoded workflow automatically.
 
-## 📝 License
+## License
 MIT
